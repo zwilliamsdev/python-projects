@@ -1,6 +1,4 @@
-def do_something():
-    print("The thing is done")
+import madlibs
 
-
-do_something()
-do_something()
+if __name__ == '__main__':
+    madlibs.get_madlib()

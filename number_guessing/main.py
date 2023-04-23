@@ -10,18 +10,30 @@ HARD: int = 5
 
 
 def get_difficulty() -> int:
+    """Ask user what difficulty they want and return the number of tries they
+    will get.
+
+    Return:
+        int - Number of tries the user gets
+    """
+    # Keep looping until the user picks a proper value
     while True:
         print("Select Difficulty:")
         print(f"\t1 - Normal ({NORMAL})")
         print(f"\t2 - Medium ({MEDIUM})")
         print(f"\t3 - Hard ({HARD})")
         difficulty = input("Select Difficulty: ")
+
+        # Attempt to cast the users string to an int
         try:
             difficulty = int(difficulty)
+        # Provide user an error message and continue to next loop so program
+        # does not crash if they enter something invalid
         except ValueError:
             print("You must enter a difficult. (1, 2, or 3)")
             continue
 
+        # Assign correct number of guesses based on difficulty
         if difficulty == 1:
             print("Selected: Normal")
             return NORMAL
